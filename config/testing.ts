@@ -7,6 +7,8 @@ export default {
     auth: {
       axios() {
         const service = axios.create({
+          //@ts-ignore
+          testing: true,
           baseURL: process.env.API_URL || 'http://localhost:1337/',
         });
         service.interceptors.request.use(
