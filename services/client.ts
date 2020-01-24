@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 
 type ClientFactoryProps = {
-  cookie: any,
+  cookie: Cookies.CookiesStatic,
   apiURL?: string;
 }
 
