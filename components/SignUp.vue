@@ -124,10 +124,10 @@ export default class extends Vue implements ISignUp {
     return this.ds.isLoading;
   }
   get isValid() {
-    return !!!this.errors.password   &&
-           !!!this.errors.rePassword &&
-           !!!this.errors.email      && 
-           !!!this.errors.username;
+    return !this.errors.password   &&
+           !this.errors.rePassword &&
+           !this.errors.email      && 
+           !this.errors.username;
   }
   get invalidEmailMsg() {
     return this.$t('Please enter a valid email address.') as string;
@@ -215,7 +215,7 @@ export default class extends Vue implements ISignUp {
    * @prop name: string
    */
   fieldType(fieldName: string): string|undefined {
-    return !!(this.errors as any)[fieldName] ? 'is-danger' : undefined;
+    return (this.errors as any)[fieldName] ? 'is-danger' : undefined;
   }
 
   /**

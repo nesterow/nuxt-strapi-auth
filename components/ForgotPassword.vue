@@ -85,7 +85,7 @@ export default class extends Vue implements IForgotPassword {
     return this.ds.isLoading;
   }
   get isValid() {
-    return !!!this.errors.identifier;
+    return !this.errors.identifier;
   }
   get invalidEmailMsg() {
     return this.$t('Please enter a valid email address.') as string;
@@ -122,7 +122,7 @@ export default class extends Vue implements IForgotPassword {
    * @prop name: string
    */
   fieldType(fieldName: string): string|undefined {
-    return !!(this.errors as any)[fieldName] ? 'is-danger' : undefined;
+    return (this.errors as any)[fieldName] ? 'is-danger' : undefined;
   }
 
   /**

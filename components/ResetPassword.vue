@@ -97,9 +97,9 @@ export default class extends Vue implements IResetPassword {
     return this.ds.isLoading;
   }
   get isValid() {
-    return !!!this.errors.password   &&
-           !!!this.errors.rePassword &&
-           !!!this.errors.token       ;
+    return !this.errors.password   &&
+           !this.errors.rePassword &&
+           !this.errors.token       ;
   }
 
   get signInURL() {
@@ -168,7 +168,7 @@ export default class extends Vue implements IResetPassword {
    * @prop name: string
    */
   fieldType(fieldName: string): string|undefined {
-    return !!(this.errors as any)[fieldName] ? 'is-danger' : undefined;
+    return (this.errors as any)[fieldName] ? 'is-danger' : undefined;
   }
 
   /**
